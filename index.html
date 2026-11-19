@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple Todo App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="src/app.mjs"></script>
+  </head>
+  <body>
+    <main class="app-shell" aria-labelledby="page-title">
+      <section class="todo-card" aria-describedby="app-description">
+        <header class="hero">
+          <p class="eyebrow">Focused task list</p>
+          <h1 id="page-title">Simple Todo App</h1>
+          <p id="app-description">
+            Add tasks, track what remains, and keep your list in this browser.
+          </p>
+        </header>
+
+        <form class="todo-form" data-todo-form>
+          <label for="todo-input">New todo</label>
+          <div class="todo-form__row">
+            <input
+              id="todo-input"
+              name="todo"
+              type="text"
+              autocomplete="off"
+              maxlength="160"
+              placeholder="What needs to be done?"
+              data-todo-input
+            />
+            <button type="submit">Add</button>
+          </div>
+          <p class="form-message" data-form-message aria-live="polite"></p>
+        </form>
+
+        <div class="toolbar" aria-label="Todo controls">
+          <p class="remaining-count" data-count aria-live="polite">0 items left</p>
+          <div class="filters" role="group" aria-label="Filter todos">
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="active" aria-pressed="false">Active</button>
+            <button type="button" data-filter="completed" aria-pressed="false">Completed</button>
+          </div>
+          <button type="button" class="clear-completed" data-clear-completed disabled>
+            Clear completed
+          </button>
+        </div>
+
+        <p class="empty-state" data-empty-state>No todos yet. Add one above to get started.</p>
+        <ul class="todo-list" data-todo-list aria-label="Todos"></ul>
+      </section>
+    </main>
+  </body>
+</html>
